@@ -29,8 +29,23 @@ Eigen::Matrix<double,2,3> g_coefficients;
 double              g_Re_number;
 double              g_time_step;
 int                 g_total_step;
-double              g_min_length;
-bool                g_delete_result=false;
+double              g_mesh_min_length;
+bool                g_delete_result;
+
+//////////BATCH GENERATION
+double g_min_Re;
+double g_max_Re;
+double g_min_length;
+double g_max_length;
+double g_min_rotation_y;
+double g_max_rotation_y;
+double g_min_rotation_z;
+double g_max_rotation_z;
+int g_Re_count;
+int g_length_count;
+int g_rotation_count_y;
+int g_rotation_count_z;
+
 
 int main() {
     OFProcessor of_processor;

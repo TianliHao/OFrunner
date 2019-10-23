@@ -148,10 +148,10 @@ void OFProcessor::RunOneCase()
 //         double edge_length=(to-from).length();
 //         if(edge_length<minlength)   minlength=edge_length;
 //     }
-//     g_min_length=minlength;
-//     cout<<"3d model minimal length is: "<<g_min_length<<endl;
+//     g_mesh_min_length=minlength;
+//     cout<<"3d model minimal length is: "<<g_mesh_min_length<<endl;
 
-//     g_time_step=g_min_length/g_velocity*1;
+//     g_time_step=g_mesh_min_length/g_velocity*1;
 //     cout<<"time step is: "<<g_time_step<<endl;
 
 // }
@@ -171,13 +171,13 @@ void OFProcessor::ReadMinEdgeLength()
         if(word!="Min/max") continue;
         login>>word;
         if(word!="edge") continue;
-        login>>word>>word>>g_min_length;
+        login>>word>>word>>g_mesh_min_length;
         break;
     }
     login.close();
-    cout<<"3d model minimal length is: "<<g_min_length<<endl;
+    cout<<"3d model minimal length is: "<<g_mesh_min_length<<endl;
 
-    g_time_step=g_min_length/g_velocity*1.5;
+    g_time_step=g_mesh_min_length/g_velocity*1.5;
     cout<<"time step is: "<<g_time_step<<endl;
 
 }
@@ -416,7 +416,7 @@ void OFProcessor::ComputeCasesForOneModel()
                 g_Re_number=Re_number;
                 for(int l=0;l<length_count;l++)
                 {
-                    g_delete_result=true;////////////////////delete result for saving diskspace
+                    //g_delete_result=true;////////////////////delete result for saving diskspace
 
                     double length=min_length;
                     if(length_count>1) length+=(max_length-min_length)/(double)(length_count-1)*l;

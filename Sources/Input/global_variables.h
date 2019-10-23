@@ -75,7 +75,7 @@ extern Eigen::Matrix<double,2,3> g_coefficients;
 extern double			   g_Re_number;
 extern double			   g_time_step;
 extern int				   g_total_step;
-extern double              g_min_length;
+extern double              g_mesh_min_length;
 extern bool				   g_delete_result;
 
 //BATCH GENERATING/////////////////////////////

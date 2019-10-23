@@ -43,6 +43,15 @@ bool LoadConfig(string filename)
             fin >> g_viscosity;
         else if (param == "g_time_step")
             fin >> g_time_step;
+        else if (param == "g_total_step")
+            fin >> g_total_step;
+        else if (param == "g_delete_result")
+        {
+            int flag;
+            fin>>flag;
+            if(flag!=0) g_delete_result=true;
+            else g_delete_result=false;
+        }
 //////////////////////
         else if (param == "g_min_Re")
             fin >> g_min_Re;
