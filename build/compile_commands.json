@@ -1,0 +1,67 @@
+[
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/main.cpp.o -c /home/tlh/Projects/OFrunner/Sources/main.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/main.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/Input/load_config.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Input/load_config.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/Input/load_config.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/OfGenerator/adjust_template.cpp.o -c /home/tlh/Projects/OFrunner/Sources/OfGenerator/adjust_template.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/OfGenerator/adjust_template.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/OfGenerator/of_input_generator.cpp.o -c /home/tlh/Projects/OFrunner/Sources/OfGenerator/of_input_generator.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/OfGenerator/of_input_generator.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/Viewer.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/Viewer/Viewer.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/controls.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/Viewer/common/controls.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/objloader.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/Viewer/common/objloader.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/quaternion_utils.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/Viewer/common/quaternion_utils.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/shader.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/Viewer/common/shader.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/tangentspace.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/Viewer/common/tangentspace.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/text2D.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/Viewer/common/text2D.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/texture.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/Viewer/common/texture.cpp"
+},
+{
+  "directory": "/home/tlh/Projects/OFrunner/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/tlh/Projects/OFrunner/./Sources -I/usr/local/include/eigen3 -I/home/tlh/Dev/OpenMesh-8.0/src    -g -Wall -O2 -std=c++11 -lX11 -ldl -g   -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/vboindexer.cpp",
+  "file": "/home/tlh/Projects/OFrunner/Sources/Viewer/common/vboindexer.cpp"
+}
+]

@@ -1,0 +1,63 @@
+//              FILES CONFIG
+/////////////////////////////////////////////////////
+g_project_path            /home/tlh/Projects/OFrunner
+g_model_folder            Models
+g_model_name              sphere_refine.obj
+g_OFtemplate_folder       OFtemplate
+g_output_folder           Output
+/////////////////////////////////////////////////////
+
+
+//              GEOMETRY CONFIG
+/////////////////////////////////////////////////////
+g_model_length            0.02   //meter
+g_render_resolution       1024
+/////////////////////////////////////////////////////
+
+
+//              CFD CONFIG
+/////////////////////////////////////////////////////
+//not sure if adjust here or edit OFtemplate
+g_Re_number               4000
+g_total_step              1500
+/////////////////////////////////////////////////////
+
+
+
+//For Generating Data Batch
+/////////////////////////////////////////////////////
+g_min_Re                    3500
+g_max_Re                    7000
+g_min_length                0.1     //meter
+g_max_length                1
+g_min_rotation_y            0       //degree
+g_max_rotation_y            90
+g_min_rotation_z            0       //degree
+g_max_rotation_z            90
+
+g_Re_count                  1       //larger than 1
+g_length_count              1
+g_rotation_count_y          1
+g_rotation_count_z          1
+
+
+
+
+
+
+
+
+
+//              REDUNDANT VARIABLES
+/////////////////////////////////////////////////////
+g_velocity                1.4694          // m/s
+g_time_step               0.4e-3
+
+g_rotation_axis           0 0 1 
+g_rotation_angle          0
+
+
+//              FIXED VALUES
+/////////////////////////////////////////////////////
+g_viscosity               0.000015      // kg/(m*s)
+g_flow_density            1.225         // kg/m^3

@@ -1,0 +1,5 @@
+echo TLHbuild
+cd ./build
+cmake ..
+make
+
