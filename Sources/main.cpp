@@ -18,6 +18,10 @@ int                 g_render_resolution;
 double              g_velocity;
 double              g_viscosity;
 
+//////////manual factors
+double              g_timestep_manual_factor;
+double              g_coeff_avg_start_rate;
+
 ///////////////not input global variables
 Eigen::Vector3d     g_avg_normal;
 double              g_projection_area;

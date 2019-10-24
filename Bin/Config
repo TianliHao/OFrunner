@@ -2,7 +2,7 @@
 /////////////////////////////////////////////////////
 g_project_path            /home/tlh/Projects/OFrunner
 g_model_folder            Models
-g_model_name              cube.obj
+g_model_name              cube_refine.obj
 g_OFtemplate_folder       OFtemplate
 g_output_folder           Output
 g_render_resolution       1024
@@ -11,7 +11,9 @@ g_render_resolution       1024
 
 //              CFD CONFIG
 /////////////////////////////////////////////////////
-g_total_step              2500
+g_total_step              100
+g_coeff_avg_start_rate    0.4
+g_timestep_manual_factor  1.3       //this term changed by cases         
 /////////////////////////////////////////////////////
 
 //For Generating Data Batch
@@ -20,15 +22,15 @@ g_min_Re                    3500
 g_max_Re                    7000
 g_min_length                0.1     //meter
 g_max_length                1
-g_min_rotation_y            0       //degree
+g_min_rotation_y            45       //degree
 g_max_rotation_y            45
-g_min_rotation_z            0       //degree
+g_min_rotation_z            45       //degree
 g_max_rotation_z            45
 
 g_Re_count                  1       //larger than 1
 g_length_count              1
-g_rotation_count_y          5
-g_rotation_count_z          5
+g_rotation_count_y          1
+g_rotation_count_z          1
 
 g_delete_result             0       //0 for false
 

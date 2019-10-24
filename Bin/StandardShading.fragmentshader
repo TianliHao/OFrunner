@@ -51,7 +51,8 @@ void main(){
 	//  - Looking elsewhere -> < 1
 	float cosAlpha = clamp( dot( E,R ), 0,1 );
 	
-	color = n;
+	vec3 offset=vec3(0.5,0.5,0.5);
+	color = offset*n+vec3(0.5,0.5,0.5);
 		// Ambient : simulates indirect lighting
 		//MaterialAmbientColor +
 		// Diffuse : "color" of the object

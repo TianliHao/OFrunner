@@ -35,6 +35,11 @@ bool LoadConfig(string filename)
         else if (param == "g_render_resolution")
             fin >> g_render_resolution;
         ////
+        else if (param == "g_timestep_manual_factor")
+            fin >> g_timestep_manual_factor;
+        else if (param == "g_coeff_avg_start_rate")
+            fin >> g_coeff_avg_start_rate;
+        ////
         else if (param == "g_velocity")
             fin >> g_velocity;
         else if (param == "g_Re_number")

@@ -62,6 +62,9 @@ extern double              g_model_length;
 extern double              g_ref_length;
 extern double              g_ref_area;
 extern int				   g_render_resolution;
+//////////manual factors
+extern double              g_timestep_manual_factor;
+extern double              g_coeff_avg_start_rate;
 //////////CFD parameters
 extern double              g_velocity;
 extern double              g_viscosity;

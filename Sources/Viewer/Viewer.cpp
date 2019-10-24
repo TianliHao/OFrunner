@@ -31,15 +31,17 @@ void PPMWriter(unsigned char *in,char *name,int dimx, int dimy)
         //CCCCCCCCCCCCCCCompute the global descriptor
         if(color[0]==0&&color[1]==0&color[2]==0)
             continue;
-        avg_normal+=Eigen::Vector3d((double)color[0]/255*2-1,(double)color[1]/255*2-1,
-        (double)color[2]/255*2-1);
+		//std::cout<<(int)color[0]<<" "<<(int)color[1]<<" "<<(int)color[2]<<std::endl;
+        Eigen::Vector3d this_normal=Eigen::Vector3d(((double)((int)color[0]+1))/128.0-1,((double)((int)color[1]+1))/(double)128.0-1,
+        ((double)((int)color[2]+1))/(double)128.0-1);
+		avg_normal+=this_normal;
+		//std::cout<<this_normal<<std::endl<<std::endl;
         pixel_count++;
         }
     }
 	g_avg_normal=avg_normal/(double)pixel_count;
 	g_projection_area=pixel_count/(double)(g_render_resolution*g_render_resolution)
 		*(2*g_model_length)*(2*g_model_length);
-
     std::cout<<"average normal: "<<g_avg_normal<<std::endl;
     std::cout<<"colored pixel count: "<<pixel_count<<std::endl;
 	std::cout<<"projection area: "<<g_projection_area<<std::endl;

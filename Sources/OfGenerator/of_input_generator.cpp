@@ -184,6 +184,8 @@ void OFProcessor::ReadMinEdgeLength()
 
 void OFProcessor::ReadCourantNumber()
 {
+    int start_count=15;
+
     string log_name=g_project_path + "/" + g_case_path +"/log.pisoFoam";
     ifstream login(log_name);
     if(login.fail())
@@ -194,6 +196,7 @@ void OFProcessor::ReadCourantNumber()
     string word;
     double mean_Co=0, max_Co=0;
     int count=0;
+    int devide_count=0;
     while(login>>word)
     {
         double num1, num2;
@@ -201,16 +204,20 @@ void OFProcessor::ReadCourantNumber()
         login>>word;
         if(word!="Number") continue;
         login>>word>>num1>>word>>num2;
-        mean_Co+=num1; max_Co+=num2;
+        if(count>start_count)
+        {
+            mean_Co+=num1; max_Co+=num2;
+            devide_count++;
+        }
         count++;
     }
     login.close();
-    mean_Co/=(double)count; max_Co/=(double)count;
-    cout<<"Count"<<count<<" Courant Number mean: "<<mean_Co<<"||||| max: "<<max_Co<<endl;
+    mean_Co/=(double)devide_count; max_Co/=(double)devide_count;
+    cout<<"Count"<<devide_count<<" Courant Number mean: "<<mean_Co<<"||||| max: "<<max_Co<<endl;
 
     //Change the time step to make sure Co number is about 1
     double rate=1.0/max_Co;
-    g_time_step*=rate;
+    g_time_step*=rate*g_timestep_manual_factor;
     cout<<"|||||||||||||New time step is: "<<g_time_step<<endl;
 }
 
@@ -220,7 +227,7 @@ void OFProcessor::ReadOneOFOutput()
     string log_name=g_project_path+"/"+g_case_path+"/../CFDlog.TLH";//TLH means Transient Line Holding data
     string dataset_name=g_project_path+"/Dataset/"+g_model_name+".TLH";
 
-    int average_start_index=g_total_step*0.7;//values in former interations are not stable enough
+    int average_start_index=g_total_step*g_coeff_avg_start_rate;//values in former interations are not stable enough
     ifstream fin[3];
     fin[0]=ifstream(g_project_path + "/" + g_case_path +"/postProcessing/forceCoeffs1/0/forceCoeffs.dat");
     fin[1]=ifstream(g_project_path + "/" + g_case_path +"/postProcessing/forceCoeffs2/0/forceCoeffs.dat");
