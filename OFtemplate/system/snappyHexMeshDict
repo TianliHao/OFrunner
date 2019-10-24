@@ -113,7 +113,7 @@ castellatedMeshControls
         model
         {
             // Surface-wise min and max refinement level
-            level (6 6);
+            level (5 5);
 
             // Optional specification of patch type (default is wall). No
             // constraint types (cyclic, symmetry) etc. are allowed.

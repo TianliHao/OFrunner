@@ -55,7 +55,7 @@ void saveImage()
 		* g_render_resolution * g_render_resolution);
     glReadPixels(0, 0, g_render_resolution, g_render_resolution, GL_RGB, GL_UNSIGNED_BYTE, image);
     // Warning : enregistre de bas en haut
-    char buffer [33];
+    char buffer [200];
     sprintf(buffer,"../Render/%s_%.2lf_%.2lf_%.2lf_%.2lf.ppm",g_model_name.c_str(),g_rotation_angle,
 		g_rotation_axis(0),g_rotation_axis(1),g_rotation_axis(2));
 

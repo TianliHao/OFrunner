@@ -317,7 +317,8 @@ void OFProcessor::ReadOneOFOutput()
             <<g_coefficients(1,0)<<" "<<g_coefficients(1,1)<<" "
             <<g_coefficients(1,2)<<"\t"
             <<c_force_average(0)<<" "<<c_force_average(1)<<" "<<c_force_average(2)<<" "
-            <<c_torque_average(0)<<" "<<c_torque_average(1)<<" "<<c_torque_average(2)<<"\n";
+            <<c_torque_average(0)<<" "<<c_torque_average(1)<<" "<<c_torque_average(2)<<"\t"
+            <<g_avg_normal(0)<<" "<<g_avg_normal(1)<<" "<<g_avg_normal(2)<<"\n\n";
         of.close();
     }
 }

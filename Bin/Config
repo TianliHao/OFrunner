@@ -11,7 +11,7 @@ g_render_resolution       1024
 
 //              CFD CONFIG
 /////////////////////////////////////////////////////
-g_total_step              1500
+g_total_step              2500
 /////////////////////////////////////////////////////
 
 //For Generating Data Batch
@@ -20,15 +20,15 @@ g_min_Re                    3500
 g_max_Re                    7000
 g_min_length                0.1     //meter
 g_max_length                1
-g_min_rotation_y            45       //degree
-g_max_rotation_y            90
-g_min_rotation_z            45       //degree
-g_max_rotation_z            90
+g_min_rotation_y            0       //degree
+g_max_rotation_y            45
+g_min_rotation_z            0       //degree
+g_max_rotation_z            45
 
 g_Re_count                  1       //larger than 1
 g_length_count              1
-g_rotation_count_y          1
-g_rotation_count_z          1
+g_rotation_count_y          5
+g_rotation_count_z          5
 
 g_delete_result             0       //0 for false
 
