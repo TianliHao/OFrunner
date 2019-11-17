@@ -19,10 +19,12 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <Viewer/common/shader.hpp>
-#include <Viewer/common/texture.hpp>
-#include <Viewer/common/controls.hpp>
-#include <Viewer/common/objloader.hpp>
+#include <Viewer/shader.hpp>
+#include <Viewer/controls.hpp>
+
+class QuickSolver;
+class OFInterpolator;
+class OFProcessor;
 
 struct PolyTraits : public OpenMesh::DefaultTraits
 {	
@@ -55,10 +57,12 @@ extern std::string         g_model_folder;
 extern std::string         g_model_name;
 extern std::string         g_OFtemplate_folder;
 extern std::string         g_output_folder;
+extern std::string         g_dataset_folder;
 //////////GEOMETRY parameters
 extern Eigen::Vector3d     g_rotation_axis;
 extern double              g_rotation_angle;
 extern double              g_model_length;
+extern double              g_diagonal_length;
 extern double              g_ref_length;
 extern double              g_ref_area;
 extern int				   g_render_resolution;
@@ -68,6 +72,7 @@ extern double              g_coeff_avg_start_rate;
 //////////CFD parameters
 extern double              g_velocity;
 extern double              g_viscosity;
+extern double              g_flow_density;
 //////////////////////////////////////////////
 extern Eigen::Vector3d     g_avg_normal;
 extern double              g_projection_area;
@@ -95,7 +100,14 @@ extern int g_length_count;
 extern int g_rotation_count_y;
 extern int g_rotation_count_z;
 
-
+/********************************************/
+extern int g_program_mode;
+extern std::vector<std::vector<double>> g_dataset;
+extern QuickSolver g_quick_solver;
+extern OFInterpolator g_of_interpolator;
+extern OFProcessor g_of_processor;
+extern double g_render_deltaT;
+/********************************************/
 
 
 bool LoadConfig(std::string filename);

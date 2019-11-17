@@ -1,4 +1,6 @@
 #include "OfGenerator/of_processor.h"
+#include "OfInterpolator/of_interpolator.h"
+#include "QuickSolver/quick_solver.h"
 
 //define global variables
 //////////FILES parameters
@@ -7,17 +9,19 @@ std::string         g_model_folder;
 std::string         g_model_name;
 std::string         g_OFtemplate_folder;
 std::string         g_output_folder;
+std::string         g_dataset_folder;
 //////////GEOMETRY parameters
 Eigen::Vector3d     g_rotation_axis;
 double              g_rotation_angle;
 double              g_model_length;
+double              g_diagonal_length;
 double              g_ref_length;
 double              g_ref_area;
 int                 g_render_resolution;
 //////////CFD parameters
 double              g_velocity;
 double              g_viscosity;
-
+double              g_flow_density;
 //////////manual factors
 double              g_timestep_manual_factor;
 double              g_coeff_avg_start_rate;
@@ -51,7 +55,46 @@ int g_rotation_count_y;
 int g_rotation_count_z;
 
 
+/*************************************/
+int g_program_mode;
+std::vector<std::vector<double>> g_dataset;
+QuickSolver g_quick_solver;
+OFInterpolator g_of_interpolator;
+OFProcessor g_of_processor;
+double g_render_deltaT;
+
 int main() {
-    OFProcessor of_processor;
+    if(!LoadConfig("Config"))
+        {std::cout<< "Cannot Find The Config File. Please put it at the same directory. Exit. " <<std::endl; return 9;}
+
+
+
+    g_of_processor.Init();
+    if(g_program_mode==2)
+    {
+        g_of_interpolator.Init();
+        g_quick_solver.Init();
+
+        g_of_processor.RunViewer();
+    }
+    
+    if(g_program_mode==3)
+    {
+        g_of_interpolator.Init();
+    }
+    
+    
+
+    // std::vector<double> test_lowd_input={31.3,0,1,0};
+    // std::vector<double> test_output_vec=of_interpolator.MinDistInterpolator(test_lowd_input);
+
+    // std::cout<<"/*/*/*/*/*/*/* interpolation output: "<<std::endl;
+    // for(int i=0;i<test_output_vec.size();i++)
+    // { 
+    //     std::cout<<test_output_vec[i]<<"\t";
+    // }std::cout<<std::endl;
+    
+
+
     return 9999;
     }

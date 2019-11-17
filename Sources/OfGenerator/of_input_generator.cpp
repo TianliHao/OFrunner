@@ -1,19 +1,24 @@
 #include "OfGenerator/of_processor.h"
 using namespace std;
 
-OFProcessor::OFProcessor()
+void OFProcessor::Init()
 {
-
-
     OpenMesh::IO::_OBJReader_();
     OpenMesh::IO::_OBJWriter_();
-    if(!LoadConfig("Config"))
-        {cout<< "Cannot Find The Config File. Please put it at the same directory. Exit. " <<endl; return;}
-    
+    ChangeGlobalVariables();
+    if(g_program_mode!=1)
+        return;
+
+    RunViewer();
     if(false)
         GenerateOneCase();
     else
-        ComputeCasesForOneModel();
+        ComputeCasesForOneModel(); 
+}
+
+void OFProcessor::RunViewer()
+{
+    Viewer viewer;
 }
 
 void ComputeVNormal(Mesh &mesh)
@@ -33,8 +38,8 @@ void OFProcessor::LoadObject()
     g_rotated_model=rotated_model_;
     //rotated_model_=g_model;
     ComputeVNormal(g_rotated_model);
-
-    Viewer viewer;
+    if(g_program_mode==1)
+        RunViewer();
 }
 
 void OFProcessor::GenerateOneCase()
@@ -85,7 +90,10 @@ void OFProcessor::NormalizeModel()
         }
         g_model.set_point(g_model.vertex_handle(i),v_coord);
     }
-    //GetMinLength();
+
+    g_diagonal_length=sqrt(pow(max_coord[0]-min_coord[0],2)+pow(max_coord[1]-min_coord[1],2)+pow(max_coord[2]-min_coord[2],2))
+                        *normalized_length/max_dist;
+    cout<<"g_diagnoal_length: "<<g_diagonal_length<<endl;
 }
 
 void OFProcessor::RotateModel()
@@ -119,7 +127,15 @@ void OFProcessor::RunOneCase()
     command = "cd " + g_project_path + "/" + g_case_path + "; . $WM_PROJECT_DIR/bin/tools/RunFunctions; runParallel $(getApplication);";
     system(command.c_str());
     ReadCourantNumber();
-    command = "cd " + g_project_path + "/" + g_case_path + "; rm -r 0.* [1-9]* post* log.pisoFoam";
+    command = "cd " + g_project_path + "/" + g_case_path + "; rm -r 0.* [1-9]* post*; mv log.pisoFoam log.pisoFoam1";
+    system(command.c_str());
+    //run short time CFD to get Co number, then adjust time step the second time
+    g_total_step=Co_test_total_step;
+    AdjustTemplatecontrolDict();
+    command = "cd " + g_project_path + "/" + g_case_path + "; . $WM_PROJECT_DIR/bin/tools/RunFunctions; runParallel $(getApplication);";
+    system(command.c_str());
+    ReadCourantNumber();
+    command = "cd " + g_project_path + "/" + g_case_path + "; rm -r 0.* [1-9]* post*; mv log.pisoFoam log.pisoFoam2";
     system(command.c_str());
 
     //run CFD
@@ -136,25 +152,6 @@ void OFProcessor::RunOneCase()
     }
 
 }
-
-//NOT USED
-// void OFProcessor::GetMinLength()
-// {
-//     double minlength=DBL_MAX;
-//     for ( EdgeIter eit   = g_model.edges_begin(); eit != g_model.edges_end(); ++eit)
-//     {
-//         const OpenMesh::Vec3d to   = g_model.point(g_model.to_vertex_handle(g_model.halfedge_handle(eit,0)));
-//         const OpenMesh::Vec3d from = g_model.point(g_model.from_vertex_handle(g_model.halfedge_handle(eit,0)));
-//         double edge_length=(to-from).length();
-//         if(edge_length<minlength)   minlength=edge_length;
-//     }
-//     g_mesh_min_length=minlength;
-//     cout<<"3d model minimal length is: "<<g_mesh_min_length<<endl;
-
-//     g_time_step=g_mesh_min_length/g_velocity*1;
-//     cout<<"time step is: "<<g_time_step<<endl;
-
-// }
 
 void OFProcessor::ReadMinEdgeLength()
 {
@@ -177,7 +174,7 @@ void OFProcessor::ReadMinEdgeLength()
     login.close();
     cout<<"3d model minimal length is: "<<g_mesh_min_length<<endl;
 
-    g_time_step=g_mesh_min_length/g_velocity*1.5;
+    g_time_step=g_mesh_min_length/g_velocity*0.001;
     cout<<"time step is: "<<g_time_step<<endl;
 
 }
@@ -317,15 +314,15 @@ void OFProcessor::ReadOneOFOutput()
     if(output_index>=average_start_index)
     {
         ofstream of(dataset_name,ios::app);
-        of<<g_rotation_angle<<" "<<g_rotation_axis(0)<<" "<<g_rotation_axis(1)<<" "<<g_rotation_axis(2)<<"\t"
-            <<g_model_length<<" "<<g_projection_area<<" "<<g_velocity<<" "
-            <<g_Re_number<<"\t"<<g_coefficients(0,0)<<" "
-            <<g_coefficients(0,1)<<" "<<g_coefficients(0,2)<<"\t"
+        of<<g_rotation_angle<<" "<<g_rotation_axis(0)<<" "<<g_rotation_axis(1)<<" "<<g_rotation_axis(2)<<"    "
+            <<g_diagonal_length<<" "<<g_projection_area<<" "<<g_velocity<<" "
+            <<g_Re_number<<"    "<<g_coefficients(0,0)<<" "
+            <<g_coefficients(0,1)<<" "<<g_coefficients(0,2)<<"    "
             <<g_coefficients(1,0)<<" "<<g_coefficients(1,1)<<" "
-            <<g_coefficients(1,2)<<"\t"
-            <<c_force_average(0)<<" "<<c_force_average(1)<<" "<<c_force_average(2)<<" "
-            <<c_torque_average(0)<<" "<<c_torque_average(1)<<" "<<c_torque_average(2)<<"\t"
-            <<g_avg_normal(0)<<" "<<g_avg_normal(1)<<" "<<g_avg_normal(2)<<"\n\n";
+            <<g_coefficients(1,2)<<"    "
+            <<c_force_average(0)<<" "<<c_force_average(1)<<" "<<c_force_average(2)<<"    "
+            <<c_torque_average(0)<<" "<<c_torque_average(1)<<" "<<c_torque_average(2)<<"    "
+            <<g_avg_normal(0)<<" "<<g_avg_normal(1)<<" "<<g_avg_normal(2)<<"\n";
         of.close();
     }
 }
@@ -341,11 +338,12 @@ void OFProcessor::ChangeGlobalVariables()
         +to_string((int)g_Re_number)+"_"
         +to_string(g_model_length).substr(0,to_string(g_model_length).size()-4);
 
-    g_velocity=g_Re_number/1.225/g_model_length*1.5e-5;
+    LoadObject();
+
+    g_velocity=g_Re_number/1.225/g_diagonal_length*1.5e-5;
     cout<<"\n\n********Re Number= "<<g_Re_number<<"\n"<<endl;
     cout<<"*******Velocity= "<<g_velocity<<"\n\n"<<endl;
 
-    LoadObject();
 }
 
 void OFProcessor::ComputeAllCFD()

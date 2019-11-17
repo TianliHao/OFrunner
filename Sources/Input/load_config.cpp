@@ -21,6 +21,8 @@ bool LoadConfig(string filename)
             fin >> g_OFtemplate_folder;
         else if (param == "g_output_folder")
             fin >> g_output_folder;
+        else if (param == "g_dataset_folder")
+            fin >> g_dataset_folder;
         ////    
         else if (param == "g_rotation_axis")
             fin >> g_rotation_axis[0] >> g_rotation_axis[1] >> g_rotation_axis[2];
@@ -46,6 +48,8 @@ bool LoadConfig(string filename)
             fin >> g_Re_number;
         else if (param == "g_viscosity")
             fin >> g_viscosity;
+        else if (param == "g_flow_density")
+            fin >> g_flow_density;
         else if (param == "g_time_step")
             fin >> g_time_step;
         else if (param == "g_total_step")
@@ -82,6 +86,11 @@ bool LoadConfig(string filename)
             fin >> g_rotation_count_y;
         else if (param == "g_rotation_count_z")
             fin >> g_rotation_count_z;
+
+/*******************************************/
+        else if (param == "g_program_mode")
+            fin >> g_program_mode;
+/*******************************************/
 	}
 	cout << "Config File Loaded Successfully." << endl;
 	return true;

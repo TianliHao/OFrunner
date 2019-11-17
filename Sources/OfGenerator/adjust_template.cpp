@@ -170,7 +170,7 @@ void OFProcessor::AdjustTemplateForcesCoeffs()
         else if(headword=="magUInf")
             fout<<"    magUInf         "<<g_velocity<<";"<<endl;
         else if(headword=="lRef")
-            fout<<"    lRef            "<<g_model_length<<";"<<endl;
+            fout<<"    lRef            "<<g_diagonal_length<<";"<<endl;
         else if(headword=="Aref")
             fout<<"    Aref            "<<g_projection_area<<";"<<endl;
         else

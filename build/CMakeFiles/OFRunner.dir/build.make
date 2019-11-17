@@ -153,9 +153,177 @@ CMakeFiles/OFRunner.dir/Sources/OfGenerator/of_input_generator.cpp.o.provides: C
 CMakeFiles/OFRunner.dir/Sources/OfGenerator/of_input_generator.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/OfGenerator/of_input_generator.cpp.o
 
 
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o: CMakeFiles/OFRunner.dir/flags.make
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o: ../Sources/OfInterpolator/OneModelSphere.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o"
+	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o -c /home/tlh/Projects/OFrunner/Sources/OfInterpolator/OneModelSphere.cpp
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.i"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/OfInterpolator/OneModelSphere.cpp > CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.i
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.s"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/OfInterpolator/OneModelSphere.cpp -o CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.s
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o.requires:
+
+.PHONY : CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o.requires
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o.requires
+	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o.provides.build
+.PHONY : CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o.provides
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o
+
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o: CMakeFiles/OFRunner.dir/flags.make
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o: ../Sources/OfInterpolator/dataset_preprocess.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o"
+	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o -c /home/tlh/Projects/OFrunner/Sources/OfInterpolator/dataset_preprocess.cpp
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.i"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/OfInterpolator/dataset_preprocess.cpp > CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.i
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.s"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/OfInterpolator/dataset_preprocess.cpp -o CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.s
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o.requires:
+
+.PHONY : CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o.requires
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o.requires
+	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o.provides.build
+.PHONY : CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o.provides
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o
+
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o: CMakeFiles/OFRunner.dir/flags.make
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o: ../Sources/OfInterpolator/of_interpolate_model.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o"
+	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o -c /home/tlh/Projects/OFrunner/Sources/OfInterpolator/of_interpolate_model.cpp
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.i"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/OfInterpolator/of_interpolate_model.cpp > CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.i
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.s"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/OfInterpolator/of_interpolate_model.cpp -o CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.s
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o.requires:
+
+.PHONY : CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o.requires
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o.requires
+	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o.provides.build
+.PHONY : CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o.provides
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o
+
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o: CMakeFiles/OFRunner.dir/flags.make
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o: ../Sources/OfInterpolator/voxel_obj.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o"
+	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o -c /home/tlh/Projects/OFrunner/Sources/OfInterpolator/voxel_obj.cpp
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.i"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/OfInterpolator/voxel_obj.cpp > CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.i
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.s"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/OfInterpolator/voxel_obj.cpp -o CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.s
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o.requires:
+
+.PHONY : CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o.requires
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o.requires
+	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o.provides.build
+.PHONY : CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o.provides
+
+CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o
+
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o: CMakeFiles/OFRunner.dir/flags.make
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o: ../Sources/QuickSolver/model_preprocess.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o"
+	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o -c /home/tlh/Projects/OFrunner/Sources/QuickSolver/model_preprocess.cpp
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.i"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/QuickSolver/model_preprocess.cpp > CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.i
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.s"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/QuickSolver/model_preprocess.cpp -o CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.s
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o.requires:
+
+.PHONY : CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o.requires
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o.requires
+	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o.provides.build
+.PHONY : CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o.provides
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o
+
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o: CMakeFiles/OFRunner.dir/flags.make
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o: ../Sources/QuickSolver/motion_computation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o"
+	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o -c /home/tlh/Projects/OFrunner/Sources/QuickSolver/motion_computation.cpp
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.i"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/QuickSolver/motion_computation.cpp > CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.i
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.s"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/QuickSolver/motion_computation.cpp -o CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.s
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o.requires:
+
+.PHONY : CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o.requires
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o.requires
+	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o.provides.build
+.PHONY : CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o.provides
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o
+
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o: CMakeFiles/OFRunner.dir/flags.make
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o: ../Sources/QuickSolver/motion_visualization.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o"
+	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o -c /home/tlh/Projects/OFrunner/Sources/QuickSolver/motion_visualization.cpp
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.i"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/QuickSolver/motion_visualization.cpp > CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.i
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.s"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/QuickSolver/motion_visualization.cpp -o CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.s
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o.requires:
+
+.PHONY : CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o.requires
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o.requires
+	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o.provides.build
+.PHONY : CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o.provides
+
+CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o
+
+
 CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o: CMakeFiles/OFRunner.dir/flags.make
 CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o: ../Sources/Viewer/Viewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o"
 	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/Viewer.cpp
 
 CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.i: cmake_force
@@ -177,196 +345,52 @@ CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o.provides: CMakeFiles/OFRunne
 CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o
 
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o: CMakeFiles/OFRunner.dir/flags.make
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o: ../Sources/Viewer/common/controls.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o"
-	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/controls.cpp
+CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o: CMakeFiles/OFRunner.dir/flags.make
+CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o: ../Sources/Viewer/controls.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o"
+	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/controls.cpp
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.i"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/Viewer/common/controls.cpp > CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.i
+CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.i"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/Viewer/controls.cpp > CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.i
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.s"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/Viewer/common/controls.cpp -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.s
+CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.s"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/Viewer/controls.cpp -o CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.s
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o.requires:
+CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o.requires:
 
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o.requires
+.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o.requires
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o.requires
-	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o.provides.build
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o.provides
+CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o.requires
+	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o.provides.build
+.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o.provides
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o
-
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o: CMakeFiles/OFRunner.dir/flags.make
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o: ../Sources/Viewer/common/objloader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o"
-	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/objloader.cpp
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.i"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/Viewer/common/objloader.cpp > CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.i
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.s"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/Viewer/common/objloader.cpp -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.s
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o.requires:
-
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o.requires
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o.requires
-	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o.provides.build
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o.provides
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o
+CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o
 
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o: CMakeFiles/OFRunner.dir/flags.make
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o: ../Sources/Viewer/common/quaternion_utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o"
-	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/quaternion_utils.cpp
+CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o: CMakeFiles/OFRunner.dir/flags.make
+CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o: ../Sources/Viewer/shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o"
+	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/shader.cpp
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.i"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/Viewer/common/quaternion_utils.cpp > CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.i
+CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.i"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/Viewer/shader.cpp > CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.i
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.s"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/Viewer/common/quaternion_utils.cpp -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.s
+CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.s"
+	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/Viewer/shader.cpp -o CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.s
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o.requires:
+CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o.requires:
 
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o.requires
+.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o.requires
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o.requires
-	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o.provides.build
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o.provides
+CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o.requires
+	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o.provides.build
+.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o.provides
 
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o
-
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o: CMakeFiles/OFRunner.dir/flags.make
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o: ../Sources/Viewer/common/shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o"
-	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/shader.cpp
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.i"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/Viewer/common/shader.cpp > CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.i
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.s"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/Viewer/common/shader.cpp -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.s
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o.requires:
-
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o.requires
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o.requires
-	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o.provides.build
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o.provides
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o
-
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o: CMakeFiles/OFRunner.dir/flags.make
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o: ../Sources/Viewer/common/tangentspace.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o"
-	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/tangentspace.cpp
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.i"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/Viewer/common/tangentspace.cpp > CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.i
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.s"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/Viewer/common/tangentspace.cpp -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.s
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o.requires:
-
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o.requires
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o.requires
-	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o.provides.build
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o.provides
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o
-
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o: CMakeFiles/OFRunner.dir/flags.make
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o: ../Sources/Viewer/common/text2D.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o"
-	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/text2D.cpp
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.i"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/Viewer/common/text2D.cpp > CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.i
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.s"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/Viewer/common/text2D.cpp -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.s
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o.requires:
-
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o.requires
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o.requires
-	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o.provides.build
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o.provides
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o
-
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o: CMakeFiles/OFRunner.dir/flags.make
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o: ../Sources/Viewer/common/texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o"
-	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/texture.cpp
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.i"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/Viewer/common/texture.cpp > CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.i
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.s"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/Viewer/common/texture.cpp -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.s
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o.requires:
-
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o.requires
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o.requires
-	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o.provides.build
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o.provides
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o
-
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o: CMakeFiles/OFRunner.dir/flags.make
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o: ../Sources/Viewer/common/vboindexer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o"
-	/usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o -c /home/tlh/Projects/OFrunner/Sources/Viewer/common/vboindexer.cpp
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.i"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlh/Projects/OFrunner/Sources/Viewer/common/vboindexer.cpp > CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.i
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.s"
-	/usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlh/Projects/OFrunner/Sources/Viewer/common/vboindexer.cpp -o CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.s
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o.requires:
-
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o.requires
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o.provides: CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o.requires
-	$(MAKE) -f CMakeFiles/OFRunner.dir/build.make CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o.provides.build
-.PHONY : CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o.provides
-
-CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o
+CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o.provides.build: CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o
 
 
 # Object files for target OFRunner
@@ -375,15 +399,16 @@ OFRunner_OBJECTS = \
 "CMakeFiles/OFRunner.dir/Sources/Input/load_config.cpp.o" \
 "CMakeFiles/OFRunner.dir/Sources/OfGenerator/adjust_template.cpp.o" \
 "CMakeFiles/OFRunner.dir/Sources/OfGenerator/of_input_generator.cpp.o" \
+"CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o" \
+"CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o" \
+"CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o" \
+"CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o" \
+"CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o" \
+"CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o" \
+"CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o" \
 "CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o" \
-"CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o" \
-"CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o" \
-"CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o" \
-"CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o" \
-"CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o" \
-"CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o" \
-"CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o" \
-"CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o"
+"CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o" \
+"CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o"
 
 # External object files for target OFRunner
 OFRunner_EXTERNAL_OBJECTS =
@@ -392,15 +417,16 @@ OFRunner_EXTERNAL_OBJECTS =
 ../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Input/load_config.cpp.o
 ../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/OfGenerator/adjust_template.cpp.o
 ../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/OfGenerator/of_input_generator.cpp.o
+../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o
+../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o
+../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o
+../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o
+../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o
+../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o
+../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o
 ../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o
-../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o
-../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o
-../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o
-../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o
-../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o
-../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o
-../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o
-../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o
+../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o
+../Bin/OFRunner: CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o
 ../Bin/OFRunner: CMakeFiles/OFRunner.dir/build.make
 ../Bin/OFRunner: /usr/lib/x86_64-linux-gnu/libGL.so
 ../Bin/OFRunner: /usr/lib/x86_64-linux-gnu/libGLU.so
@@ -412,7 +438,7 @@ OFRunner_EXTERNAL_OBJECTS =
 ../Bin/OFRunner: /usr/lib/x86_64-linux-gnu/libX11.so
 ../Bin/OFRunner: /usr/lib/x86_64-linux-gnu/libXext.so
 ../Bin/OFRunner: CMakeFiles/OFRunner.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable ../Bin/OFRunner"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tlh/Projects/OFrunner/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable ../Bin/OFRunner"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OFRunner.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -424,15 +450,16 @@ CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/main.cpp.o.req
 CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Input/load_config.cpp.o.requires
 CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/OfGenerator/adjust_template.cpp.o.requires
 CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/OfGenerator/of_input_generator.cpp.o.requires
+CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/OneModelSphere.cpp.o.requires
+CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/dataset_preprocess.cpp.o.requires
+CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/of_interpolate_model.cpp.o.requires
+CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/OfInterpolator/voxel_obj.cpp.o.requires
+CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/QuickSolver/model_preprocess.cpp.o.requires
+CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_computation.cpp.o.requires
+CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/QuickSolver/motion_visualization.cpp.o.requires
 CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/Viewer.cpp.o.requires
-CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/common/controls.cpp.o.requires
-CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/common/objloader.cpp.o.requires
-CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/common/quaternion_utils.cpp.o.requires
-CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/common/shader.cpp.o.requires
-CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/common/tangentspace.cpp.o.requires
-CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/common/text2D.cpp.o.requires
-CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/common/texture.cpp.o.requires
-CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/common/vboindexer.cpp.o.requires
+CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/controls.cpp.o.requires
+CMakeFiles/OFRunner.dir/requires: CMakeFiles/OFRunner.dir/Sources/Viewer/shader.cpp.o.requires
 
 .PHONY : CMakeFiles/OFRunner.dir/requires
 

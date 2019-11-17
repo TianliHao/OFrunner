@@ -8,7 +8,10 @@ class OFProcessor
     //this class is for generate correct OpenFoam input folder
     //needed parameters are provided in global variables
 public:
-    OFProcessor();
+    OFProcessor(){};
+    void Init();
+    void RunViewer();
+
     void LoadObject();
     void GenerateOneCase();
     void GenerateOneInput();
