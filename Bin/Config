@@ -17,7 +17,7 @@ g_program_mode            1
 
 //              CFD CONFIG
 /////////////////////////////////////////////////////
-g_total_step              2000
+g_total_step              1000
 g_coeff_avg_start_rate    0.7
 g_timestep_manual_factor  1       //this term changed by cases         
 /////////////////////////////////////////////////////
@@ -26,17 +26,17 @@ g_timestep_manual_factor  1       //this term changed by cases
 /////////////////////////////////////////////////////
 g_min_Re                    3000
 g_max_Re                    3000
-g_min_length                0.1     //meter
-g_max_length                0.1
-g_min_rotation_y            0       //degree
+g_min_length                1     //meter
+g_max_length                1
+g_min_rotation_y            45       //degree
 g_max_rotation_y            45
-g_min_rotation_z            9       //degree
+g_min_rotation_z            45       //degree
 g_max_rotation_z            45
 
 g_Re_count                  1       //larger than 1
 g_length_count              1
-g_rotation_count_y          6
-g_rotation_count_z          5
+g_rotation_count_y          1
+g_rotation_count_z          1
 
 g_delete_result             0       //0 for false
 

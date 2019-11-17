@@ -121,22 +121,17 @@ void OFProcessor::RunOneCase()
     system(command.c_str());
     ReadMinEdgeLength();
 
-    //run short time CFD to get Co number, then adjust time step
-    g_total_step=Co_test_total_step;
-    AdjustTemplatecontrolDict();
-    command = "cd " + g_project_path + "/" + g_case_path + "; . $WM_PROJECT_DIR/bin/tools/RunFunctions; runParallel $(getApplication);";
-    system(command.c_str());
-    ReadCourantNumber();
-    command = "cd " + g_project_path + "/" + g_case_path + "; rm -r 0.* [1-9]* post*; mv log.pisoFoam log.pisoFoam1";
-    system(command.c_str());
-    //run short time CFD to get Co number, then adjust time step the second time
-    g_total_step=Co_test_total_step;
-    AdjustTemplatecontrolDict();
-    command = "cd " + g_project_path + "/" + g_case_path + "; . $WM_PROJECT_DIR/bin/tools/RunFunctions; runParallel $(getApplication);";
-    system(command.c_str());
-    ReadCourantNumber();
-    command = "cd " + g_project_path + "/" + g_case_path + "; rm -r 0.* [1-9]* post*; mv log.pisoFoam log.pisoFoam2";
-    system(command.c_str());
+    for(int i=0;i<3;i++)
+    {
+        //run short time CFD to get Co number, then adjust time step
+        g_total_step=Co_test_total_step;
+        AdjustTemplatecontrolDict();
+        command = "cd " + g_project_path + "/" + g_case_path + "; ./RunCFD";
+        system(command.c_str());
+        ReadCourantNumber();
+        command = "cd " + g_project_path + "/" + g_case_path + "; rm -r 0.* [1-9]* post* log.patchSummary log.potentialFoam; mv log.pisoFoam log.pisoFoam"+to_string(i);
+        system(command.c_str());
+    }
 
     //run CFD
     g_total_step=actual_total_step;
