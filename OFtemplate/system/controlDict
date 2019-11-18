@@ -18,7 +18,7 @@ FoamFile
 
 application     pisoFoam;
 
-startFrom       latestTime;
+startFrom       startTime;
 
 startTime       0;
 
@@ -30,7 +30,7 @@ deltaT          1.5e-6;
 
 writeControl    timeStep;//adjustableRunTime;
 
-writeInterval   50;//1.5e-5;
+writeInterval   10;
 
 purgeWrite      0;
 

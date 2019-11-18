@@ -23,12 +23,26 @@ void OFInterpolator::GetDatasetForOneModel()
         rotation_axis=Vector3d(g_dataset[i][1],g_dataset[i][2],g_dataset[i][3]);
         length=g_dataset[i][4];
         velocity=g_dataset[i][6];
-        force_in_OF_coord=Vector3d(g_dataset[i][14],g_dataset[i][15],g_dataset[i][16]);
-        torque_in_OF_coord=Vector3d(g_dataset[i][17],g_dataset[i][18],g_dataset[i][19]);
-        // //make force&torque become the Coeff Cd*A and Cm*A*l: 
-        // force_in_OF_coord/=0.5*velocity*velocity*g_flow_density;
-        // torque_in_OF_coord/=0.5*velocity*velocity*g_flow_density;
 
+        bool output_real_force_torque=false;
+        if(output_real_force_torque)
+        {
+            force_in_OF_coord=Vector3d(g_dataset[i][14],g_dataset[i][15],g_dataset[i][16]);
+            torque_in_OF_coord=Vector3d(g_dataset[i][17],g_dataset[i][18],g_dataset[i][19]);
+        }
+        else
+        {
+            force_in_OF_coord=Vector3d(g_dataset[i][8],g_dataset[i][9],g_dataset[i][10]);
+            torque_in_OF_coord=Vector3d(g_dataset[i][11],g_dataset[i][12],g_dataset[i][13]);
+            force_in_OF_coord*=g_dataset[i][5];
+            torque_in_OF_coord*=g_dataset[i][5]*g_dataset[i][4];        
+            // //make force&torque become the Coeff Cd*A and Cm*A*l: 
+            force_in_OF_coord=Vector3d(g_dataset[i][14],g_dataset[i][15],g_dataset[i][16]);
+            torque_in_OF_coord=Vector3d(g_dataset[i][17],g_dataset[i][18],g_dataset[i][19]);
+            force_in_OF_coord/=0.5*velocity*velocity*g_flow_density;
+            torque_in_OF_coord/=0.5*velocity*velocity*g_flow_density;
+
+        }
         max_force_=max(max_force_,sqrt(force_in_OF_coord.dot(force_in_OF_coord)));
         max_torque_=max(max_torque_,sqrt(torque_in_OF_coord.dot(torque_in_OF_coord)));
 
@@ -222,12 +236,12 @@ void OFInterpolator::OutputArrowObj()
 
 void OFInterpolator::OutputCsvFile()
 {
-    string out_filename=g_project_path+"/"+g_dataset_folder+"/ModelsData/"+g_model_name+".csv";
+    string out_filename=g_project_path+"/"+g_dataset_folder+"/ModelsData/"+g_model_name+".txt";
     ofstream fout(out_filename);
     for(int i=0;i<dataset_.size();i++)
     {
-        double alpha=dataset_[i][0];
-        double beta=dataset_[i][1];
+        double alpha=dataset_[i][0]*M_PI/180;
+        double beta=dataset_[i][1]*M_PI/180;
         double x=cos(beta)*cos(alpha), y=sin(beta), z=cos(beta)*sin(alpha);
         fout<<x<<","<<y<<","<<z<<",";
         for(int j=2;j<dataset_[i].size();j++)

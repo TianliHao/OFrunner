@@ -50,13 +50,12 @@ g_delete_result             0       //0 for false
 
 //              REDUNDANT VARIABLES
 /////////////////////////////////////////////////////
-g_model_length            0.1   //meter
-g_Re_number               4000
-g_velocity                1.4694          // m/s
-g_time_step               0.4e-3
+g_model_length            1   //meter
+g_Re_number               3000
+g_velocity                0.0212088          // m/s
 
-g_rotation_axis           0 1 0
-g_rotation_angle          45
+g_rotation_axis           0.21 0.81 0.52
+g_rotation_angle          53.64
 
 
 //              FIXED VALUES

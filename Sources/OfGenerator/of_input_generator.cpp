@@ -10,7 +10,7 @@ void OFProcessor::Init()
         return;
 
     RunViewer();
-    if(false)
+    if(true)
         GenerateOneCase();
     else
         ComputeCasesForOneModel(); 
@@ -121,7 +121,7 @@ void OFProcessor::RunOneCase()
     system(command.c_str());
     ReadMinEdgeLength();
 
-    for(int i=0;i<3;i++)
+    for(int i=0;i<1;i++)
     {
         //run short time CFD to get Co number, then adjust time step
         g_total_step=Co_test_total_step;
@@ -129,7 +129,7 @@ void OFProcessor::RunOneCase()
         command = "cd " + g_project_path + "/" + g_case_path + "; ./RunCFD";
         system(command.c_str());
         ReadCourantNumber();
-        command = "cd " + g_project_path + "/" + g_case_path + "; rm -r 0.* [1-9]* post* log.patchSummary log.potentialFoam; mv log.pisoFoam log.pisoFoam"+to_string(i);
+        command = "cd " + g_project_path + "/" + g_case_path + "; rm -r 0.* [1-9]* post* proce*/0.* proce*/[1-9]* log.patchSummary log.potentialFoam; mv log.pisoFoam log.pisoFoam"+to_string(i);
         system(command.c_str());
     }
 
@@ -397,7 +397,7 @@ void OFProcessor::ComputeCasesForOneModel()
         double rotation_angle_y=min_rotation_y;
         if(rotation_count_y>1) rotation_angle_y+=(max_rotation_y-min_rotation_y)/(double)(rotation_count_y-1)*y;
         rotation_angle_y*=M_PI/180;
-        Eigen::AngleAxisd rot_vec1(rotation_angle_y, rotation_axis_y);
+        Eigen::AngleAxisd rot_y(rotation_angle_y, rotation_axis_y);
 
         //rotation along z-axis
         for(int z=0;z<rotation_count_z;z++)
@@ -406,8 +406,8 @@ void OFProcessor::ComputeCasesForOneModel()
             double rotation_angle_z=min_rotation_z;
             if(rotation_count_z>1) rotation_angle_z+=(max_rotation_z-min_rotation_z)/(double)(rotation_count_z-1)*z;
             rotation_angle_z*=M_PI/180;
-            Eigen::AngleAxisd rot_vec2(rotation_angle_z, rotation_axis_z);
-            Eigen::AngleAxisd rot_combine(rot_vec1.matrix()*rot_vec2.matrix());
+            Eigen::AngleAxisd rot_z(rotation_angle_z, rotation_axis_z);
+            Eigen::AngleAxisd rot_combine(rot_y.matrix()*rot_z.matrix());//first_mat*second_mat means use local coord
             g_rotation_angle=rot_combine.angle()*180/M_PI;
             g_rotation_axis=rot_combine.axis();
             for(int re=0;re<Re_count;re++)
