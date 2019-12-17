@@ -36,7 +36,7 @@ void GetOFOutput()
 }
 
 void computeMatricesFromInputs(){
-	if(g_program_mode==1)
+	if(g_program_mode==1||g_program_mode==4)
 	{
 	glm::vec3 position = glm::vec3( -g_model_length,0 ,0 ); 
 	static double lastTime = glfwGetTime();
@@ -48,7 +48,7 @@ void computeMatricesFromInputs(){
 	glm::vec3 direction(1,0,0);
 	glm::vec3 up = glm::vec3(0,1,0);	
 	ViewMatrix       = glm::lookAt(position,position+direction,up);
-
+	//lookat matrix get new coord represent
 	ProjectionMatrix = glm::ortho(-g_model_length,g_model_length,
 		-g_model_length,g_model_length,0.0,2*g_model_length);
 

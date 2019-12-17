@@ -2,7 +2,7 @@
 /////////////////////////////////////////////////////
 g_project_path            /home/tlh/Projects/OFrunner
 g_model_folder            Models
-g_model_name              openbox.obj
+g_model_name              foamdisk.obj
 g_OFtemplate_folder       OFtemplate
 g_output_folder           Output
 g_render_resolution       1024
@@ -10,8 +10,9 @@ g_dataset_folder          Dataset
 /////////////////////////////////////////////////////
 
 /***************************************************/
-g_program_mode            1
-    //1 for OFrunner; 2 for OFinterpolator; 3 for generate OneModelDataVisualization
+g_program_mode            5
+    //1 for OFrunner; 2 for OFinterpolator; 3 for generate OneModelDataVisualization;
+    //4 for NormalList; 5 for getting normal-f/t dataset
 /***************************************************/
 
 
@@ -19,27 +20,23 @@ g_program_mode            1
 /////////////////////////////////////////////////////
 g_total_step              1000
 g_coeff_avg_start_rate    0.7
-g_timestep_manual_factor  1       //this term changed by cases         
+g_timestep_manual_factor  1      //this term changed by cases         
 /////////////////////////////////////////////////////
 
 //For Generating Data Batch
 /////////////////////////////////////////////////////
-g_min_Re                    3000
-g_max_Re                    3000
-g_min_length                1     //meter
-g_max_length                1
-g_min_rotation_y            45       //degree
-g_max_rotation_y            45
-g_min_rotation_z            45       //degree
-g_max_rotation_z            45
 
-g_Re_count                  1       //larger than 1
-g_length_count              1
-g_rotation_count_y          1
-g_rotation_count_z          1
+g_min_rotation_y            55       //degree, alpha, left-right
+g_max_rotation_y            85
+g_min_rotation_z            -10       //degree, beta, up-down
+g_max_rotation_z            -60
 
-g_delete_result             0       //0 for false
+g_rotation_count_y          4
+g_rotation_count_z          6
 
+g_delete_result             1       //0 for keeping files
+
+g_one_case_CFD_test         0       //1 for one-case-test
 
 
 
@@ -50,12 +47,20 @@ g_delete_result             0       //0 for false
 
 //              REDUNDANT VARIABLES
 /////////////////////////////////////////////////////
+
+g_min_length                0.1     //meter
+g_max_length                1
+g_min_Re                    3000
+g_max_Re                    3000
+g_Re_count                  1       //larger than 1
+g_length_count              1
+
 g_model_length            1   //meter
 g_Re_number               3000
 g_velocity                0.0212088          // m/s
 
-g_rotation_axis           0.21 0.81 0.52
-g_rotation_angle          53.64
+g_rotation_axis           0 0 1
+g_rotation_angle          0
 
 
 //              FIXED VALUES

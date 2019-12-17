@@ -1,7 +1,10 @@
 #include "OfInterpolator/of_interpolator.h"
 using namespace std;
 using namespace OpenMesh;
-
+using namespace Eigen;
+//data format-index
+//rotation_angle, axis, length, area, velo, Re, Cd, Cl, Cs, coeffM, force, torque, avg_normal
+//0               123   4       5     6     7   8   9   10  111213  141516 171819  202122
 void OFInterpolator::Init()
 {
     data_element_count_=23;
@@ -22,12 +25,24 @@ void OFInterpolator::Init()
     if(g_program_mode==3)
     {
         GetDatasetForOneModel();
-        //GenerateOneModelList();
-        OutputArrowObj();
-        OutputCsvFile();
-    }
-    
+        OutputCsvFile(0);
+        OutputArrowObj(0);
+        
+        GenerateOneModelList();
+        OutputArrowObj(1);
+        OutputCsvFile(1);
 
+        OutputSHParameters();
+    }
+    if(g_program_mode==5)
+    {
+        ResetDatasetNormalArea();
+        ChangeDataFormat();
+        AugmentNormalData();
+        InterpolateForNormalMap();
+        OutputArrowObj(1);
+        OutputSHParameters();
+    }
 }
 
 void OFInterpolator::ReadInputPair()
@@ -67,46 +82,187 @@ double ComputeRadiansFrom2DVec(double x, double y)
     return theta;
 }
 
+void OFInterpolator::ReadNormalList()
+{
+    g_normal_list.clear();
+    std::string NL_filename="../Render/NormalList/"+g_model_name+".NL";
+    std::fstream fin(NL_filename,std::ios::in);
+    double param;
+    while(fin>>param)
+    {
+        std::vector<double> normal_data(6,0);
+        normal_data[0]=param;
+        for(int i=1;i<6;i++)
+            fin>>normal_data[i];
+        g_normal_list.push_back(normal_data);
+    }
+}
+
+void OFInterpolator::ResetDatasetNormalArea()
+{
+    ReadNormalList();
+    for(int i=0;i<g_dataset.size();i++)
+    {
+        Vector3d rotation_axis(g_dataset[i][1],g_dataset[i][2],g_dataset[i][3]);
+        Matrix3d model_rotation_in_world=AngleAxisd(g_dataset[i][0]/180*M_PI, rotation_axis).toRotationMatrix();
+        double alpha_radians, beta_radians;
+        AlphaBetaRadiansFromRotMat(model_rotation_in_world.transpose(),alpha_radians,beta_radians);
+        double alpha_degree=alpha_radians*180/M_PI;
+        double beta_degree=beta_radians*180/M_PI;
+        
+        double min_dist=DBL_MAX;
+        int min_index=0;
+        for(int n=0;n<g_normal_list.size();n++)
+        {
+            double this_dist=pow(g_normal_list[n][0]-alpha_degree,2)+pow(g_normal_list[n][1]-beta_degree,2);
+            if(this_dist<min_dist)
+            {
+                min_dist=this_dist;
+                min_index=n;
+            }
+        }
+        g_dataset[i][20]=g_normal_list[min_index][3];
+        g_dataset[i][21]=g_normal_list[min_index][4];
+        g_dataset[i][22]=g_normal_list[min_index][5];
+    }
+}
+
 void OFInterpolator::ChangeDataFormat()
 {
     dataset_.clear();
     for(int i=0;i<g_dataset.size();i++)
-    {
-        float normal_para, normal_ortho, alpha, f_para, f_ortho, beta, t_para, t_ortho, length, velocity;
-        //all angle here is in radians
-        normal_para=sqrt(g_dataset[i][20]*g_dataset[i][20]+g_dataset[i][21]*g_dataset[i][21]);//from camera coord
-        normal_ortho=g_dataset[i][22];
-        f_para=sqrt(g_dataset[i][15]*g_dataset[i][15]+g_dataset[i][16]*g_dataset[i][16]);//from world coord, into camera coord
-        f_ortho=g_dataset[i][14];
-        t_para=sqrt(g_dataset[i][18]*g_dataset[i][18]+g_dataset[i][19]*g_dataset[i][19]);
-        t_ortho=g_dataset[i][17];
-        double angle_normal=ComputeRadiansFrom2DVec(g_dataset[i][20],g_dataset[i][21]);
-        double angle_force=ComputeRadiansFrom2DVec(g_dataset[i][16],g_dataset[i][15]);
-        double angle_torque=ComputeRadiansFrom2DVec(g_dataset[i][19],g_dataset[i][18]);
-        alpha=angle_force-angle_normal;//angle from n to force
-        beta=angle_torque-angle_normal;//angle from n to torque
-        length=g_dataset[i][4];
-        velocity=g_dataset[i][6];
-        std::vector<double> datapair;
-        input_size_=4;
-        datapair.push_back(length);//input
-        datapair.push_back(velocity);
-        datapair.push_back(normal_para);
-        datapair.push_back(normal_ortho);
-        datapair.push_back(f_para);//output
-        datapair.push_back(f_ortho);
-        datapair.push_back(alpha);
-        datapair.push_back(t_para);
-        datapair.push_back(t_ortho);
-        datapair.push_back(beta);
+    {   
+        Eigen::Vector3d local_x;
+        Eigen::Vector3d local_y;
+        Eigen::Vector3d local_z;
+        Eigen::Vector3d f_coeff(g_dataset[i][8],g_dataset[i][9],g_dataset[i][10]);
+        f_coeff*=g_dataset[i][5];//save the Cd*A value
+        Eigen::Vector3d t_coeff(g_dataset[i][11],g_dataset[i][12],g_dataset[i][13]);
+        t_coeff*=g_dataset[i][5]*g_dataset[i][4];//save the Cm*A*l value
+        Eigen::Vector3d normal_area(g_dataset[i][20],g_dataset[i][21],g_dataset[i][22]);
+        normal_area*=g_dataset[i][5];//save the normal*area value
+        Vector3d rotation_axis(g_dataset[i][1],g_dataset[i][2],g_dataset[i][3]);
+        Eigen::Matrix3d model_rotation_in_world=AngleAxisd(g_dataset[i][0]/180.0*M_PI, rotation_axis).toRotationMatrix();
+        Eigen::Matrix3d viewpoint_rotation=model_rotation_in_world.transpose();
         
+        local_z=-viewpoint_rotation*Vector3d(1,0,0);
+        local_y=viewpoint_rotation*Vector3d(0,1,0);
+        local_x=viewpoint_rotation*Vector3d(0,0,1);
+
+
+        std::vector<double> datapair;
+        input_size_=12;
+        datapair.push_back(local_x[0]); datapair.push_back(local_x[1]); datapair.push_back(local_x[2]);
+        datapair.push_back(local_y[0]); datapair.push_back(local_y[1]); datapair.push_back(local_y[2]);
+        datapair.push_back(local_z[0]); datapair.push_back(local_z[1]); datapair.push_back(local_z[2]);
+        datapair.push_back(normal_area[0]); datapair.push_back(normal_area[1]); datapair.push_back(normal_area[2]);
+        datapair.push_back(f_coeff[0]); datapair.push_back(f_coeff[1]); datapair.push_back(f_coeff[2]);
+        datapair.push_back(t_coeff[0]); datapair.push_back(t_coeff[1]); datapair.push_back(t_coeff[2]);
         dataset_.push_back(datapair);
     }
-
-
-
-
 }
+
+void OFInterpolator::AugmentNormalData()//rotation by the flow-axis
+{
+    vector<vector<double>> new_dataset;
+    for(int i=0;i<dataset_.size();i++)
+    {
+        Vector3d local_x(dataset_[i][0],dataset_[i][1],dataset_[i][2]);
+        Vector3d local_y(dataset_[i][3],dataset_[i][4],dataset_[i][5]);
+        Vector3d local_z(dataset_[i][6],dataset_[i][7],dataset_[i][8]);
+        Vector3d normal_area(dataset_[i][9],dataset_[i][10],dataset_[i][11]);
+        Vector3d f_coeff(dataset_[i][12],dataset_[i][13],dataset_[i][14]);
+        Vector3d t_coeff(dataset_[i][15],dataset_[i][16],dataset_[i][17]);
+
+        int rot_num=36;
+        for(int j=0;j<rot_num;j++)
+        {
+            vector<double> datapair;
+            double rot_radians=2*M_PI/(double)rot_num*j;
+            Matrix3d world_rot=AngleAxisd(rot_radians,local_z).toRotationMatrix();
+            local_x=world_rot*local_x;
+            local_y=world_rot*local_y;
+            Vector3d local_rot_axis(0,0,1);
+            Matrix3d local_rot=AngleAxisd(rot_radians,local_rot_axis).toRotationMatrix();
+            normal_area=local_rot*normal_area;
+            f_coeff=local_rot*f_coeff;
+            t_coeff=local_rot*t_coeff;
+            datapair.push_back(local_x[0]); datapair.push_back(local_x[1]); datapair.push_back(local_x[2]);
+            datapair.push_back(local_y[0]); datapair.push_back(local_y[1]); datapair.push_back(local_y[2]);
+            datapair.push_back(local_z[0]); datapair.push_back(local_z[1]); datapair.push_back(local_z[2]);
+            datapair.push_back(normal_area[0]); datapair.push_back(normal_area[1]); datapair.push_back(normal_area[2]);
+            datapair.push_back(f_coeff[0]); datapair.push_back(f_coeff[1]); datapair.push_back(f_coeff[2]);
+            datapair.push_back(t_coeff[0]); datapair.push_back(t_coeff[1]); datapair.push_back(t_coeff[2]);
+            new_dataset.push_back(datapair);
+        }
+    }
+    dataset_=new_dataset;
+    
+    // for(int i=0;i<dataset_.size();i++)
+    // {
+    //     for(int j=0;j<dataset_[0].size();j++)
+    //     {
+    //         cout<<dataset_[i][j]<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+}
+
+
+void OFInterpolator::InterpolateForNormalMap()
+{
+
+    //delete x,y,z lines in dataset, only keep normal-f/t
+    input_size_=3;
+    int origin_dataset_size=dataset_[0].size();
+    for(int i=0;i<dataset_.size();i++)
+    {
+        vector<double> new_data;
+        for(int j=9;j<origin_dataset_size;j++)
+            new_data.push_back(dataset_[i][j]);
+        dataset_[i]=new_data;
+    }
+    
+    g_model_name=g_model_name;
+    ReadNormalList();
+    
+    ComputeLeastSquareParams();
+
+    vector<vector<double>> new_dataset;
+    for(int i=0;i<g_normal_list.size();i++)
+    {
+        vector<double> new_data(8,0);//alpha,beta, normal*area, force, torque
+        new_data[0]=g_normal_list[i][0];
+        new_data[1]=g_normal_list[i][1];
+        vector<double> interpolate_data(9,0);
+        Vector3d normal_area(g_normal_list[i][0],g_normal_list[i][1],g_normal_list[i][2]);
+        for(int a=0;a<3;a++)
+            interpolate_data[a]=normal_area[a];
+        LeastSquareFitting(interpolate_data);
+
+        for(int a=0;a<6;a++)
+            new_data[a+2]=interpolate_data[a+3];
+        new_dataset.push_back(new_data);
+    }
+    input_size_=2;
+    dataset_=new_dataset;
+
+    for(int i=0;i<dataset_.size();i++)
+    {
+        for(int j=0;j<dataset_[0].size();j++)
+        {
+            cout<<dataset_[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+
+
+
+
+
+
 
 
 // OD: ray, p0p1p2: triangle

@@ -61,6 +61,13 @@ bool LoadConfig(string filename)
             if(flag!=0) g_delete_result=true;
             else g_delete_result=false;
         }
+        else if (param == "g_one_case_CFD_test")
+        {
+            int flag;
+            fin>>flag;
+            if(flag!=0) g_one_case_CFD_test=true;
+            else g_one_case_CFD_test=false;
+        }
 //////////////////////
         else if (param == "g_min_Re")
             fin >> g_min_Re;

@@ -30,7 +30,7 @@ deltaT          1.5e-6;
 
 writeControl    timeStep;//adjustableRunTime;
 
-writeInterval   10;
+writeInterval   100;
 
 purgeWrite      0;
 

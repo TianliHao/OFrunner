@@ -10,10 +10,7 @@ void OFProcessor::Init()
         return;
 
     RunViewer();
-    if(true)
-        GenerateOneCase();
-    else
-        ComputeCasesForOneModel(); 
+    ComputeCasesForOneModel(); 
 }
 
 void OFProcessor::RunViewer()
@@ -34,6 +31,8 @@ void OFProcessor::LoadObject()
 {
     OpenMesh::IO::read_mesh(g_model, g_project_path+"/"+g_model_folder+"/"+g_model_name);
     NormalizeModel();
+    g_model_length=g_model_length/g_diagonal_length;
+    NormalizeModel();
     RotateModel();
     g_rotated_model=rotated_model_;
     //rotated_model_=g_model;
@@ -44,11 +43,23 @@ void OFProcessor::LoadObject()
 
 void OFProcessor::GenerateOneCase()
 {
+    successful_run_=false;
+    int total_step=g_total_step;
+    double timestep_manual_factor=g_timestep_manual_factor;
     ChangeGlobalVariables();
-    GenerateOneInput();
-    AdjustTemplate();
-    RunOneCase();
-    ReadOneOFOutput();
+    for(int i=0;i<1;i++)
+    {
+        double rerun_rate=0.7;
+        GenerateOneInput();
+        AdjustTemplate();
+        RunOneCase();
+        ReadOneOFOutput();
+        if(successful_run_) break;
+        g_timestep_manual_factor=g_timestep_manual_factor*rerun_rate;
+        g_total_step=(int)(g_total_step/rerun_rate);
+    }
+    g_total_step= total_step;
+    g_timestep_manual_factor=timestep_manual_factor;
 }
 
 void OFProcessor::GenerateOneInput()
@@ -306,8 +317,13 @@ void OFProcessor::ReadOneOFOutput()
             cout<<"moment coefficient: "<<g_coefficients(1,a)<<endl;
         }
     }
-    if(output_index>=average_start_index)
+    //do not output datapair for one-case-test
+    if(g_one_case_CFD_test!=0)
+        return;
+
+    if(output_index>=g_total_step-1)
     {
+        successful_run_=true;
         ofstream of(dataset_name,ios::app);
         of<<g_rotation_angle<<" "<<g_rotation_axis(0)<<" "<<g_rotation_axis(1)<<" "<<g_rotation_axis(2)<<"    "
             <<g_diagonal_length<<" "<<g_projection_area<<" "<<g_velocity<<" "
@@ -317,7 +333,8 @@ void OFProcessor::ReadOneOFOutput()
             <<g_coefficients(1,2)<<"    "
             <<c_force_average(0)<<" "<<c_force_average(1)<<" "<<c_force_average(2)<<"    "
             <<c_torque_average(0)<<" "<<c_torque_average(1)<<" "<<c_torque_average(2)<<"    "
-            <<g_avg_normal(0)<<" "<<g_avg_normal(1)<<" "<<g_avg_normal(2)<<"\n";
+            <<19960420<<" "<<g_alpha_degree<<" "<<g_beta_degree<<"\n";//temp change: save alpha beta, replacing the normal
+            //<<g_avg_normal(0)<<" "<<g_avg_normal(1)<<" "<<g_avg_normal(2)<<"\n";
         of.close();
     }
 }
@@ -325,6 +342,8 @@ void OFProcessor::ReadOneOFOutput()
 void OFProcessor::ChangeGlobalVariables()
 {
 
+    LoadObject();
+    
     g_case_path = g_output_folder+"/"+g_model_name+"/"
         +to_string(g_rotation_axis[0]).substr(0,to_string(g_rotation_axis[0]).size()-4)+"_"
         +to_string(g_rotation_axis[1]).substr(0,to_string(g_rotation_axis[1]).size()-4)+"_"
@@ -333,7 +352,16 @@ void OFProcessor::ChangeGlobalVariables()
         +to_string((int)g_Re_number)+"_"
         +to_string(g_model_length).substr(0,to_string(g_model_length).size()-4);
 
-    LoadObject();
+    g_case_path = g_output_folder+"/"+g_model_name+"/"
+        +to_string(g_alpha_degree).substr(0,to_string(g_alpha_degree).size()-4)+"_"
+        +to_string(g_beta_degree).substr(0,to_string(g_beta_degree).size()-4)+"_"
+        +to_string((int)g_Re_number)+"_"
+        +to_string(g_model_length).substr(0,to_string(g_model_length).size()-4);
+    
+    //add flag of testing one case
+    if(g_one_case_CFD_test!=0)
+        g_case_path+="_OneCaseTest";
+
 
     g_velocity=g_Re_number/1.225/g_diagonal_length*1.5e-5;
     cout<<"\n\n********Re Number= "<<g_Re_number<<"\n"<<endl;
@@ -389,6 +417,20 @@ void OFProcessor::ComputeCasesForOneModel()
     int length_count=g_length_count;
     int rotation_count_y=g_rotation_count_y;
     int rotation_count_z=g_rotation_count_z;
+
+    if(g_one_case_CFD_test!=0)
+    {
+        //if g_one_case_CFD_test!=0
+        //all the changes:
+        //here, ignore sampling number and delete_result_flag
+        //ChangeGlobalVariables(): g_case_path, in case of deleting dataset generating files
+        //ReadOneOFOutput(): do not generate datapair
+        g_rotation_count_y=1;
+        g_rotation_count_z=1;
+        g_Re_count=1;
+        g_length_count=1;
+        g_delete_result=0;
+    }
     
     //rotation along y-axis
     for(int y=0;y<rotation_count_y;y++)
@@ -396,6 +438,7 @@ void OFProcessor::ComputeCasesForOneModel()
         Eigen::Vector3d rotation_axis_y(0,1,0);
         double rotation_angle_y=min_rotation_y;
         if(rotation_count_y>1) rotation_angle_y+=(max_rotation_y-min_rotation_y)/(double)(rotation_count_y-1)*y;
+        g_alpha_degree=rotation_angle_y;
         rotation_angle_y*=M_PI/180;
         Eigen::AngleAxisd rot_y(rotation_angle_y, rotation_axis_y);
 
@@ -405,9 +448,11 @@ void OFProcessor::ComputeCasesForOneModel()
             Eigen::Vector3d rotation_axis_z(0,0,1);
             double rotation_angle_z=min_rotation_z;
             if(rotation_count_z>1) rotation_angle_z+=(max_rotation_z-min_rotation_z)/(double)(rotation_count_z-1)*z;
+            g_beta_degree=rotation_angle_z;
             rotation_angle_z*=M_PI/180;
             Eigen::AngleAxisd rot_z(rotation_angle_z, rotation_axis_z);
-            Eigen::AngleAxisd rot_combine(rot_y.matrix()*rot_z.matrix());//first_mat*second_mat means use local coord
+            //ORDER CHANGED!!
+            Eigen::AngleAxisd rot_combine(rot_z.matrix()*rot_y.matrix());//first_mat*second_mat means use local coord
             g_rotation_angle=rot_combine.angle()*180/M_PI;
             g_rotation_axis=rot_combine.axis();
             for(int re=0;re<Re_count;re++)
@@ -428,6 +473,84 @@ void OFProcessor::ComputeCasesForOneModel()
             }            
         }
     }
+}
 
-    
+void OFProcessor::GenerateNormalList()
+{
+    int longitudinal_div=36;
+    int latitudinal_div=2;
+    double delta_alpha_degree=360/(double)longitudinal_div;
+    double delta_beta_degree=180/(double)latitudinal_div;
+
+    std::vector<std::vector<double>> normal_list;
+    string listname="../Render/NormalList/"+g_model_name+".NL";
+    std::fstream fout(listname.c_str(),std::ios::out);
+
+
+    int small_longitudinal_div=1;
+    for(int lon=0;lon<small_longitudinal_div;lon++)
+    {
+        for(int lat=0;lat<latitudinal_div+1;lat++)
+        {
+            g_alpha_degree=delta_alpha_degree*lon;
+            g_beta_degree=delta_beta_degree*lat-90;
+            Eigen::Vector3d rotation_axis_y(0,1,0);
+            Eigen::Vector3d rotation_axis_z(0,0,1);
+            Eigen::AngleAxisd rot_y(g_alpha_degree*M_PI/180.0, rotation_axis_y);
+            Eigen::AngleAxisd rot_z(g_beta_degree*M_PI/180.0, rotation_axis_z);
+            Eigen::AngleAxisd rot_combine(rot_z.matrix()*rot_y.matrix());
+            g_rotation_angle=rot_combine.angle()*180/M_PI;
+            g_rotation_axis=rot_combine.axis();
+            
+            RotateModel();
+            g_rotated_model=rotated_model_;
+            ComputeVNormal(g_rotated_model);
+            Viewer viewer;
+
+            std::vector<double> normal_data;
+            normal_data.push_back(g_alpha_degree);
+            normal_data.push_back(g_beta_degree);
+            normal_data.push_back(g_projection_area);
+            normal_data.push_back(g_avg_normal[0]);
+            normal_data.push_back(g_avg_normal[1]);
+            normal_data.push_back(g_avg_normal[2]);
+            normal_list.push_back(normal_data);
+        }
+    }
+    std::vector<std::vector<double>> new_normal_list;
+    for(int i=0;i<normal_list.size();i++)
+    {
+        if(g_model_name=="foamdisk.obj"||g_model_name=="foamsemisphere.obj")
+        {
+            for(int lon=0;lon<longitudinal_div;lon++)
+            {
+                std::vector<double> new_data;
+                g_alpha_degree=delta_alpha_degree*lon;
+                new_data=normal_list[i];
+                new_data[0]=g_alpha_degree;
+                new_normal_list.push_back(new_data);
+            }
+        }
+        if(g_model_name=="realbox.obj")
+        {
+            for(int a=0;a<4;a++)
+            {
+                std::vector<double> new_data;
+                new_data=normal_list[i];
+                new_data[0]=new_data[0]+a*90;
+                new_normal_list.push_back(new_data);
+            }
+        }
+    }
+    normal_list=new_normal_list;
+    g_normal_list=normal_list;
+
+    //write file
+    for(int i=0;i<normal_list.size();i++)
+    {
+        for(int a=0;a<6;a++)
+        {
+            fout<<normal_list[i][a]<<" ";
+        }fout<<endl;
+    }
 }

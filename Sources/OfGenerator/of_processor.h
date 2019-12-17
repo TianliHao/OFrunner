@@ -16,6 +16,9 @@ public:
     void GenerateOneCase();
     void GenerateOneInput();
 
+    //get normal-area list for all projections of a model
+    void GenerateNormalList();
+
     void RunOneCase();
 
     void ReadMinEdgeLength();//for computing Courant Number
@@ -40,6 +43,7 @@ public:
 
 private:
     Mesh rotated_model_;
+    bool successful_run_;
 };
 
 #endif

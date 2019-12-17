@@ -13,6 +13,8 @@ std::string         g_dataset_folder;
 //////////GEOMETRY parameters
 Eigen::Vector3d     g_rotation_axis;
 double              g_rotation_angle;
+double              g_alpha_degree;
+double              g_beta_degree;
 double              g_model_length;
 double              g_diagonal_length;
 double              g_ref_length;
@@ -29,6 +31,7 @@ double              g_coeff_avg_start_rate;
 ///////////////not input global variables
 Eigen::Vector3d     g_avg_normal;
 double              g_projection_area;
+std::vector<std::vector<double>> g_normal_list;
 //These should change when other g_ variables change
 Mesh                g_model;
 Mesh                g_rotated_model;
@@ -39,6 +42,7 @@ double              g_time_step;
 int                 g_total_step;
 double              g_mesh_min_length;
 bool                g_delete_result;
+bool                g_one_case_CFD_test;//only works when g_program_mode==1
 
 //////////BATCH GENERATION
 double g_min_Re;
@@ -70,6 +74,11 @@ int main() {
 
 
     g_of_processor.Init();
+    if(g_program_mode==4)//generate normal map list for a model
+    {
+        g_of_processor.GenerateNormalList();
+    }
+
     if(g_program_mode==2)
     {
         g_of_interpolator.Init();
@@ -79,6 +88,10 @@ int main() {
     }
     
     if(g_program_mode==3)
+    {
+        g_of_interpolator.Init();
+    }
+    if(g_program_mode==5)
     {
         g_of_interpolator.Init();
     }

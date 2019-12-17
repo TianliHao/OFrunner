@@ -48,6 +48,8 @@ void PPMWriter(unsigned char *in,char *name,int dimx, int dimy)
     std::cout<<"average normal: "<<g_avg_normal<<std::endl;
     std::cout<<"colored pixel count: "<<pixel_count<<std::endl;
 	std::cout<<"projection area: "<<g_projection_area<<std::endl;
+	//g_avg_normal*=g_projection_area;
+	//std::cout<<"normal*area: "<<g_avg_normal<<std::endl;
 
     fclose(saveTxt);
     (void) fclose(fp);
@@ -72,6 +74,13 @@ void saveImage(int index)
 	{
 		char buffer [200];
 		sprintf(buffer,"../Render/temp.ppm");
+		PPMWriter(image,buffer,g_render_resolution, g_render_resolution);
+	}
+	if(index==4)
+	{
+		char buffer [200];
+		sprintf(buffer,"../Render/NormalList/%s_%.2lf_%.2lf.ppm",g_model_name.c_str(),
+			g_alpha_degree, g_beta_degree);
 		PPMWriter(image,buffer,g_render_resolution, g_render_resolution);
 	}
 }
@@ -237,7 +246,7 @@ int Viewer::RenderCase()
 
 		//compute model motion
 		glm::mat4 ModelMatrix(1.0);
-		if(g_program_mode!=1)
+		if(g_program_mode!=1&&g_program_mode!=4)
 			ModelMatrix=computeModelMotion();
 		// Compute the MVP matrix from keyboard and mouse input
 		computeMatricesFromInputs();
@@ -275,7 +284,7 @@ int Viewer::RenderCase()
 		// Swap buffers
 		glfwSwapBuffers(window);
 		
-		if(g_program_mode==1)
+		if(g_program_mode==1||g_program_mode==4)
 		{
     		saveImage(g_program_mode); break;
 		}

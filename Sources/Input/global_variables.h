@@ -61,6 +61,8 @@ extern std::string         g_dataset_folder;
 //////////GEOMETRY parameters
 extern Eigen::Vector3d     g_rotation_axis;
 extern double              g_rotation_angle;
+extern double              g_alpha_degree;
+extern double              g_beta_degree;
 extern double              g_model_length;
 extern double              g_diagonal_length;
 extern double              g_ref_length;
@@ -76,6 +78,7 @@ extern double              g_flow_density;
 //////////////////////////////////////////////
 extern Eigen::Vector3d     g_avg_normal;
 extern double              g_projection_area;
+extern std::vector<std::vector<double>> g_normal_list;
 extern Mesh                g_model;
 extern Mesh                g_rotated_model;
 extern std::string         g_case_path;
@@ -85,6 +88,7 @@ extern double			   g_time_step;
 extern int				   g_total_step;
 extern double              g_mesh_min_length;
 extern bool				   g_delete_result;
+extern bool                g_one_case_CFD_test;
 
 //BATCH GENERATING/////////////////////////////
 extern double g_min_Re;
